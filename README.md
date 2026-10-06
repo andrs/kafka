@@ -1,4 +1,4 @@
-# Chapter 09 — Event-Driven Architecture with Python & Apache Kafka (SSL)
+# Event-Driven Architecture with Python & Apache Kafka (SSL)
 
 > A fully working, SSL-secured, multi-service event-driven system built with Python and Apache Kafka.
 > Each microservice communicates exclusively through Kafka topics — no direct service-to-service calls.
@@ -211,7 +211,7 @@ Chapter09/
 
 ```bash
 git clone <repo-url>
-cd Chapter09
+cd kafka
 ```
 
 ### 2. Generate SSL certificates
