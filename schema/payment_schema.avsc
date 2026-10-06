@@ -1,0 +1,45 @@
+{
+  "type": "record",
+  "name": "payment",
+  "version": 1.0,
+  "namespace": "com.fandutech.events",
+  "fields": [
+    {
+      "name": "payment_id",
+      "type": "string"
+    },
+    {
+      "name": "order_id",
+      "type": "string"
+    },
+    {
+      "name": "customer_id",
+      "type": "string"
+    },
+    {
+      "name": "restaurant_id",
+      "type": "string"
+    },
+    {
+      "name": "amount_paid",
+      "type": "double"
+    },
+    {
+      "name": "payment_status",
+      "type": {
+        "type": "enum",
+        "name": "PaymentStatus",
+        "symbols": [
+          "INITIATED",
+          "PROCESSED",
+          "FAILED"
+        ]
+      }
+    },
+    {
+      "name": "payment_timestamp",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

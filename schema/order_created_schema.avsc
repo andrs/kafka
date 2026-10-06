@@ -1,0 +1,65 @@
+{
+  "type": "record",
+  "version": 1.0,
+  "name": "order_created",
+  "namespace": "com.fandutech.events",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "string"
+    },
+    {
+      "name": "customer_id",
+      "type": "string"
+    },
+    {
+      "name": "restaurant_id",
+      "type": "string"
+    },
+    {
+      "name": "status",
+      "type": "string"
+    },
+    {
+      "name": "order_items",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "order_item",
+          "fields": [
+            {
+              "name": "item_id",
+              "type": "string"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "price",
+              "type": "double"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "delivery_address",
+      "type": "string"
+    },
+    {
+      "name": "payment_method",
+      "type": "string"
+    },
+    {
+      "name": "total_amount",
+      "type": "double"
+    },
+    {
+      "name": "timestamp",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

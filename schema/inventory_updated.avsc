@@ -1,0 +1,21 @@
+{
+  "type": "record",
+  "name": "inventory_updated",
+  "version": 1.0,
+  "namespace": "com.fandutech.events",
+  "fields": [
+    {
+      "name": "item_id",
+      "type": "string"
+    },
+    {
+      "name": "quantity_change",
+      "type": "int"
+    },
+    {
+      "name": "updated_timestamp",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

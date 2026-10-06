@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "order_completed",
+  "version": 1.0,
+  "namespace": "com.fandutech.events",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "string"
+    },
+    {
+      "name": "delivery_person_id",
+      "type": "string"
+    },
+    {
+      "name": "status",
+      "type": "string"
+    },
+    {
+      "name": "delivered_timestamp",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

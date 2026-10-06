@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "order_canceled",
+  "version": 1.0,
+  "namespace": "com.fandutech.events",
+  "fields": [
+    {
+      "name": "order_id",
+      "type": "string"
+    },
+    {
+      "name": "restaurant_id",
+      "type": "string"
+    },
+    {
+      "name": "cancellation_reason",
+      "type": "string"
+    },
+    {
+      "name": "canceled_timestamp",
+      "type": "string",
+      "logicalType": "timestamp-millis"
+    }
+  ]
+}

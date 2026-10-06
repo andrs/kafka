@@ -1,0 +1,69 @@
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Distribution / packaging ───────────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# ── SSL certificates, keys and keystores ──────────────────────────────────────
+# Generated at runtime — never commit private keys or keystores
+*.key
+*.crt
+*.csr
+*.pem
+*.p12
+*.jks
+*_creds
+
+# ── Docker secrets directory ───────────────────────────────────────────────────
+# Contains all generated SSL material for the Kafka cluster
+docker/secrets/
+
+# ── Environment files ──────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Logs ───────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS files ───────────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# ── IDE / editor ───────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ── Pytest / coverage ──────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# ── MyPy ───────────────────────────────────────────────────────────────────────
+.mypy_cache/
