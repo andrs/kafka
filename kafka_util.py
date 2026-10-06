@@ -118,11 +118,10 @@ def is_duplicate(event_id, event_name, cursor):
 
 def consume_event(event, event_id, event_name, domain_method):
     global cursor, conn
+    cursor, conn = None, None
     logger.debug(f"Consumed event: {event}")
 
     try:
-        conn = psycopg2.connect(**postgres_config)
-        cursor = conn.cursor()
         with psycopg2.connect(**postgres_config) as conn:
             with conn.cursor() as cursor:
                 if is_duplicate(event_id, event_name, cursor):
@@ -131,27 +130,21 @@ def consume_event(event, event_id, event_name, domain_method):
 
                 order_id = event['order_id']
                 timestamp = datetime.now()
-                # Insert into event metadata table
                 cursor.execute(
                     "INSERT INTO eda.processed_events (event_id, event_name, timestamp, order_id) VALUES (%s, %s, %s, %s)",
                     (event_id, event_name, timestamp, order_id))
 
-                # Execute domain method for event consumption.
-                # Insert event processing logic here, like updating a database or triggering an API call
                 domain_method(event_id, event_name, order_id, event)
                 conn.commit()
                 logger.debug(f"Event processed in kafka utility: {event_id}, {event_name}")
     except psycopg2.Error as e:
         logger.error(f"Database error with event_id {event_id}, event_name {event_name}: {e}")
-        conn.rollback()
+        if conn:
+            conn.rollback()
     except Exception as e:
         logger.error(f"Error in consuming event with event_id {event_id}, event_name {event_name}: {e}")
-        conn.rollback()
-    finally:
-        if cursor:
-            cursor.close()
         if conn:
-            conn.close()
+            conn.rollback()
 
 def retry_event(producer, event, key, event_id, event_name, domain_method, retries, backoff):
     for attempt in range(retries):
