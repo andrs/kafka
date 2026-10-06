@@ -30,7 +30,7 @@ dist/
 
 # ── Docker secrets directory ───────────────────────────────────────────────────
 # Contains all generated SSL material for the Kafka cluster
-docker/secrets/
+#docker/secrets/
 
 # ── Environment files ──────────────────────────────────────────────────────────
 .env
